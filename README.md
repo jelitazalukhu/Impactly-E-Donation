@@ -1,45 +1,164 @@
-# Impactly: Platform Donasi Online yang Transparan
+<div align="center">
 
-Proyek UTS E-Application, Program Studi D3 Teknik Informatika.
+#  Impactly
 
-Anggota kelompok:
-- Jelita Crisna Zalukhu (241712022)
-- Kabul Manik (241712023)
+### Platform Donasi Online Berbasis Web
 
-## Deskripsi
-Impactly adalah aplikasi donasi online berbasis web dengan tiga peran: donatur, penggalang dana, dan administrator. Campaign diverifikasi admin sebelum tayang, dilengkapi berita dan laporan penyaluran dana, dan donatur mendapat sertifikat digital.
+Donasi dengan nominal bebas, pantau penyaluran dananya, dan dapatkan sertifikat digital sebagai apresiasi.
 
-## Fitur utama
-- Login multi-role (donatur, penggalang dana, admin)
-- CRUD campaign dengan verifikasi admin
-- Donasi nominal bebas dengan opsi anonim
-- Pembayaran Midtrans Dummy dan progress bar otomatis
-- Berita campaign dan laporan penyaluran dana
-- Sertifikat donatur digital (PDF)
-- Papan top donatur
+![PHP](https://img.shields.io/badge/PHP-8.2%2B-777BB4?logo=php&logoColor=white)
+![Laravel](https://img.shields.io/badge/Laravel-12-FF2D20?logo=laravel&logoColor=white)
+![MySQL](https://img.shields.io/badge/MySQL-4479A1?logo=mysql&logoColor=white)
+![Bootstrap](https://img.shields.io/badge/Bootstrap-5.3-7952B3?logo=bootstrap&logoColor=white)
+![Status](https://img.shields.io/badge/Status-Selesai-16A34A)
 
-## Teknologi
-PHP 8.2+, Laravel 12, MySQL, Bootstrap 5.3, Midtrans Dummy (Snap SDK), barryvdh/laravel-dompdf.
+**Proyek UTS E-Application · D3 Teknik Informatika**
 
-## Cara menjalankan
-1. `git clone https://github.com/USERNAME/impactly-e-donation.git`
-2. `cd impactly-e-donation`
-3. `composer install`
-4. `copy .env.example .env`
-5. Buat database kosong bernama `e_donation` di phpMyAdmin
-6. `php artisan key:generate`
-7. `php artisan migrate --seed`
-8. `php artisan storage:link`
-9. `php artisan serve`
-10. Buka `http://127.0.0.1:8000`
+</div>
 
-Sebagai alternatif langkah 7, impor berkas `database/e_donation.sql` lewat phpMyAdmin ke database `e_donation`.
+---
 
-## Akun demo
+## 📖 Tentang Impactly
+
+Banyak orang ragu berdonasi online karena tidak tahu apakah dananya benar-benar sampai ke penerima manfaat. Impactly menjawabnya dengan tiga hal: **setiap campaign diverifikasi admin** sebelum tayang, **setiap campaign punya berita dan laporan penyaluran dana**, dan **setiap donasi tercatat** dengan status yang jelas.
+
+## ✨ Fitur Utama
+
+| | Fitur | Keterangan |
+| --- | --- | --- |
+| 🔐 | Login multi-role | Donatur, penggalang dana, dan admin punya hak akses berbeda |
+| 📝 | CRUD campaign | Penggalang membuat, mengubah, dan menghapus campaign |
+| ✅ | Verifikasi admin | Campaign tayang publik setelah disetujui admin |
+| 💸 | Donasi nominal bebas | Berapa pun nominalnya, dengan opsi donasi anonim |
+| 💳 | Midtrans Dummy | Pembayaran simulasi dengan status pending, paid, failed, expired |
+| 📊 | Progress bar otomatis | Dihitung dari donasi yang berhasil dibayar |
+| 📰 | Berita dan penyaluran dana | Kabar terbaru dan laporan penggunaan dana di tiap campaign |
+| 🏅 | Sertifikat digital (PDF) | Terbit otomatis untuk donasi mulai Rp 50.000 |
+| 🏆 | Top donatur | Papan peringkat donatur dengan opsi anonim |
+
+## 👥 Peran Pengguna
+
+| Peran | Yang bisa dilakukan |
+| --- | --- |
+| **Tamu** | Melihat beranda, campaign, dan top donatur tanpa login |
+| **Donatur** | Berdonasi, melihat riwayat, dan mengunduh sertifikat |
+| **Penggalang dana** | Membuat campaign, memposting berita, dan melaporkan penyaluran dana |
+| **Administrator** | Memverifikasi campaign, mengelola pengguna, dan memoderasi konten |
+
+## 🔄 Alur Donasi
+
+```mermaid
+flowchart LR
+    A[Pilih campaign] --> B[Isi nominal]
+    B --> C[Pembayaran Midtrans Dummy]
+    C -->|Berhasil| D[Status paid]
+    C -->|Gagal| E[Status failed]
+    C -->|Kedaluwarsa| F[Status expired]
+    D --> G[Progress bertambah]
+    D --> H{Nominal >= Rp 50.000?}
+    H -->|Ya| I[Sertifikat PDF terbit]
+    H -->|Tidak| J[Selesai]
+```
+
+## 🛠️ Teknologi
+
+- **Backend:** PHP 8.2+, Laravel 12
+- **Frontend:** Blade, Bootstrap 5.3, Bootstrap Icons
+- **Database:** MySQL
+- **Pembayaran:** Midtrans Dummy (Snap SDK)
+- **PDF:** barryvdh/laravel-dompdf
+
+## 🚀 Cara Menjalankan
+
+### Yang harus ada dulu
+| Aplikasi | Fungsi | Unduh |
+| --- | --- | --- |
+| **XAMPP** (PHP 8.2 atau lebih baru) | Menyediakan PHP dan database MySQL | apachefriends.org |
+| **Composer** | Memasang pustaka yang dibutuhkan Laravel | getcomposer.org |
+| **Git** | Mengunduh proyek dari GitHub | git-scm.com |
+
+> Tidak mau memasang Git? Di halaman repo ini klik tombol hijau **Code > Download ZIP**, ekstrak, lalu lewati langkah 1.
+
+### Langkah-langkah
+
+Semua perintah diketik di **Command Prompt** atau terminal VS Code. Tekan Enter setelah setiap perintah dan tunggu sampai selesai.
+
+**Langkah 1. Unduh proyek**
+```bash
+git clone https://github.com/USERNAME/impactly-e-donation.git
+cd impactly-e-donation
+```
+Perintah pertama mengunduh proyek, yang kedua masuk ke foldernya.
+
+**Langkah 2. Nyalakan MySQL**
+Buka **XAMPP Control Panel**, lalu klik **Start** pada baris **MySQL**. Tulisannya akan berwarna hijau.
+
+**Langkah 3. Buat database kosong**
+Buka http://localhost/phpmyadmin di browser, klik **Baru** (New), isi nama database `e_donation`, lalu klik **Buat**.
+
+**Langkah 4. Pasang pustaka Laravel**
+```bash
+composer install
+```
+Proyek ini tidak membawa folder `vendor` (berisi pustaka Laravel), jadi perintah ini mengunduhnya. Butuh internet dan beberapa menit. Berhasil kalau muncul folder `vendor` dan tidak ada tulisan merah.
+
+**Langkah 5. Siapkan pengaturan**
+```bash
+copy .env.example .env
+php artisan key:generate
+```
+Perintah pertama membuat berkas pengaturan `.env`. Yang kedua membuat kunci keamanan aplikasi. Berhasil kalau muncul "Application key set successfully".
+
+**Langkah 6. Buat tabel dan isi data contoh**
+```bash
+php artisan migrate --seed
+```
+Berhasil kalau muncul daftar tabel berstatus **DONE**. Kalau muncul error koneksi, cek lagi langkah 2 dan 3.
+
+> Alternatif: lewati langkah ini, lalu impor berkas `database/e_donation.sql` lewat phpMyAdmin (buka database `e_donation`, tab **Impor**).
+
+**Langkah 7. Hubungkan folder foto**
+```bash
+php artisan storage:link
+```
+
+**Langkah 8. Jalankan aplikasi**
+```bash
+php artisan serve
+```
+Biarkan jendela ini tetap terbuka. Lalu buka **http://127.0.0.1:8000** di browser dan aplikasi siap dipakai. Untuk menghentikannya, tekan **Ctrl + C**.
+
+### Kalau ada masalah
+| Pesan | Penyebab dan solusi |
+| --- | --- |
+| `composer` tidak dikenali | Composer belum terpasang. Pasang lalu buka ulang terminal |
+| `could not find driver` atau koneksi database gagal | MySQL belum dinyalakan di XAMPP (langkah 2) |
+| `Unknown database 'e_donation'` | Database belum dibuat (langkah 3) |
+| Foto campaign tidak muncul | Jalankan `php artisan storage:link` (langkah 7) |
+| `Your requirements could not be resolved` | PHP di XAMPP kurang dari 8.2. Pasang XAMPP versi terbaru |
+## 🔑 Akun Demo
+
 | Peran | Email | Password |
 | --- | --- | --- |
 | Admin | admin@edonation.test | Admin#12345 |
-| Penggalang |yayasan@demo.test | password123 |
+| Penggalang dana | yayasan@demo.test| password123 |
 | Donatur | budi@demo.test | password123 |
 
-Batas nominal sertifikat: Rp 50.000.
+## 🗄️ Struktur Database
+
+Delapan tabel: `users`, `categories`, `campaigns`, `donations`, `payments`, `certificates`, `campaign_updates`, dan `fund_distributions`.
+
+## 👩‍💻 Anggota Kelompok
+
+| Nama | NIM |
+| --- | --- |
+| Jelita Crisna Zalukhu | 241712022 |
+| Kabul Manik | 241712023 |
+
+---
+
+<div align="center">
+
+Dibuat untuk memenuhi tugas UTS E-Application · D3 Teknik Informatika
+
+</div>
