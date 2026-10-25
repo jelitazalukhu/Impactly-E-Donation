@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Waktu pembuatan: 20 Okt 2026 pada 07.37
+-- Waktu pembuatan: 25 Okt 2026 pada 02.38
 -- Versi server: 10.4.32-MariaDB
 -- Versi PHP: 8.2.12
 
@@ -32,14 +32,6 @@ CREATE TABLE `cache` (
   `value` mediumtext NOT NULL,
   `expiration` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
-
---
--- Dumping data untuk tabel `cache`
---
-
-INSERT INTO `cache` (`key`, `value`, `expiration`) VALUES
-('impactly-cache-5c785c036466adea360111aa28563bfd556b5fba', 'i:1;', 1792472984),
-('impactly-cache-5c785c036466adea360111aa28563bfd556b5fba:timer', 'i:1792472984;', 1792472984);
 
 -- --------------------------------------------------------
 
@@ -81,14 +73,17 @@ CREATE TABLE `campaigns` (
 
 INSERT INTO `campaigns` (`id_campaign`, `id_user`, `id_category`, `title`, `description`, `image`, `target_amount`, `deadline`, `status`, `rejection_note`, `created_at`, `updated_at`, `deleted_at`) VALUES
 (1, 3, 2, 'Bantu Renovasi Masjid Al-Ikhlas Medan Timur', 'Atap dan lantai masjid yang melayani sekitar 400 jamaah setiap pekan sudah banyak yang bocor dan lapuk.\r\n\r\nDana akan dipakai untuk mengganti atap, memperbaiki lantai, dan menambah tempat wudhu. Seluruh pengeluaran dilaporkan pada tab Penyaluran Dana.', 'campaigns/4ntBSSarSPowhOuu0s5NNoVkBVCmhFFLz8P0HyTN.jpg', 150000000.00, '2026-11-13', 'aktif', NULL, '2026-09-19 04:41:51', '2026-10-19 09:35:37', NULL),
-(2, 2, 3, 'Beasiswa untuk Anak Panti Asuhan Harapan Bunda', 'Sebanyak 24 anak di panti kami membutuhkan biaya sekolah, seragam, dan perlengkapan belajar untuk satu tahun ajaran.\n\nSetiap donasi membantu mereka tetap bersekolah dan meraih cita-cita.', NULL, 75000000.00, '2026-11-28', 'nonaktif', NULL, '2026-09-23 04:41:51', '2026-10-19 09:39:05', NULL),
-(3, 4, 1, 'Bantu Korban Banjir di Kabupaten Langkat', 'Banjir merendam ratusan rumah warga dan memaksa keluarga mengungsi. Mereka membutuhkan makanan siap saji, selimut, dan obat-obatan.\r\n\r\nTim relawan menyalurkan bantuan langsung ke posko pengungsian.', 'campaigns/dkerssVF4GGx50C5LEnvY5kQFf2CTY9E0tJgGxAT.jpg', 200000000.00, '2026-10-31', 'aktif', NULL, '2026-09-27 04:41:51', '2026-10-19 09:36:57', NULL),
+(2, 2, 3, 'Beasiswa untuk Anak Panti Asuhan Harapan Bunda', 'Sebanyak 24 anak di panti kami membutuhkan biaya sekolah, seragam, dan perlengkapan belajar untuk satu tahun ajaran.\n\nSetiap donasi membantu mereka tetap bersekolah dan meraih cita-cita.', NULL, 75000000.00, '2026-11-28', 'nonaktif', NULL, '2026-09-23 04:41:51', '2026-10-23 12:58:10', NULL),
+(3, 4, 1, 'Bantu Korban Banjir di Wilayah Sumatera', 'Banjir merendam ratusan rumah warga dan memaksa keluarga mengungsi. Mereka membutuhkan makanan siap saji, selimut, dan obat-obatan.\r\n\r\nTim relawan menyalurkan bantuan langsung ke posko pengungsian.', 'campaigns/dkerssVF4GGx50C5LEnvY5kQFf2CTY9E0tJgGxAT.jpg', 200000000.00, '2026-10-31', 'aktif', NULL, '2026-09-27 04:41:51', '2026-10-21 05:05:27', NULL),
 (4, 4, 5, 'Operasi Jantung untuk Adik Rafa', 'Rafa (7 tahun) didiagnosis kelainan jantung bawaan dan perlu operasi segera. Biaya yang tidak ditanggung jaminan kesehatan harus ditanggung keluarga.\r\n\r\nDonasi digunakan sepenuhnya untuk biaya operasi dan perawatan.', 'campaigns/YKibS9OMvDWmK30IwXwEl12fbzxwo6gaQZYprb0d.jpg', 90000000.00, '2026-10-28', 'aktif', NULL, '2026-10-01 04:41:51', '2026-10-19 09:37:50', NULL),
-(5, 2, 4, 'Perpustakaan Desa untuk Anak Pesisir', 'Anak-anak di desa pesisir belum memiliki tempat membaca. Kami ingin membangun perpustakaan kecil lengkap dengan rak, buku, dan komputer.', NULL, 40000000.00, '2026-11-18', 'nonaktif', NULL, '2026-10-05 04:41:51', '2026-10-19 09:39:09', NULL),
-(6, 3, 1, 'Sembako untuk Lansia Dhuafa', 'Paket sembako bulanan untuk lansia yang hidup sendirian dan tidak memiliki penghasilan tetap di sekitar Medan Timur.', NULL, 30000000.00, '2026-11-06', 'nonaktif', NULL, '2026-10-09 04:41:51', '2026-10-19 09:39:12', NULL),
-(7, 3, 2, 'Pembangunan Mushala Kampus', 'Pembangunan mushala untuk mahasiswa dan civitas kampus. Campaign ini sedang menunggu verifikasi admin.', NULL, 60000000.00, '2026-12-03', 'nonaktif', NULL, '2026-10-13 04:41:51', '2026-10-19 09:39:16', NULL),
+(5, 2, 4, 'Perpustakaan Desa untuk Anak Pesisir', 'Anak-anak di desa pesisir belum memiliki tempat membaca. Kami ingin membangun perpustakaan kecil lengkap dengan rak, buku, dan komputer.', NULL, 40000000.00, '2026-10-14', 'nonaktif', NULL, '2026-10-05 04:41:51', '2026-10-23 12:59:12', NULL),
+(6, 3, 1, 'Sembako untuk Lansia Dhuafa', 'Paket sembako bulanan untuk lansia yang hidup sendirian dan tidak memiliki penghasilan tetap di sekitar Medan Timur.', NULL, 30000000.00, '2026-11-06', 'nonaktif', NULL, '2026-10-09 04:41:51', '2026-10-23 12:57:47', NULL),
+(7, 3, 2, 'Pembangunan Mushala Kampus', 'Pembangunan mushala untuk mahasiswa dan civitas kampus. Campaign ini sedang menunggu verifikasi admin.', NULL, 60000000.00, '2026-12-03', 'aktif', NULL, '2026-10-13 04:41:51', '2026-10-23 12:55:23', '2026-10-23 12:55:23'),
 (8, 2, 2, 'Bersama Mewujudkan Gereja yang Lebih Layak.', 'Gereja merupakan tempat bagi jemaat untuk beribadah, berdoa, dan mempererat kebersamaan dalam iman. Namun, kondisi bangunan yang mulai membutuhkan perbaikan membuat renovasi diperlukan agar kegiatan ibadah dapat berlangsung dengan lebih aman dan nyaman.\r\n\r\nMelalui kampanye ini, kami mengajak para jemaat dan masyarakat untuk berpartisipasi dalam mendukung proses renovasi gereja. Dana yang terkumpul akan digunakan untuk memperbaiki bagian bangunan yang membutuhkan perhatian, meningkatkan kenyamanan ruang ibadah, serta mendukung tersedianya fasilitas yang lebih layak bagi jemaat.\r\n\r\nSetiap kontribusi, berapa pun nominalnya, merupakan bentuk dukungan yang berarti bagi keberlangsungan kegiatan ibadah dan kebersamaan jemaat. Mari ambil bagian dalam mewujudkan tempat ibadah yang lebih aman, nyaman, dan layak bagi semua.\r\n\r\nTerima kasih atas perhatian, doa, dan dukungan yang diberikan.', 'campaigns/bGiaBoIZf9JnIMRA2GhCKoQq2MSU780SD8W7d4bL.jpg', 99930000.00, '2026-12-31', 'aktif', NULL, '2026-10-19 08:31:44', '2026-10-19 09:28:01', NULL),
-(9, 4, 3, 'Pembangunan Panti Jompo', 'Setiap lansia berhak mendapatkan tempat tinggal yang aman, nyaman, dan layak, serta lingkungan yang mendukung kebutuhan mereka sehari-hari. Namun, keterbatasan fasilitas dan tempat tinggal yang memadai masih menjadi tantangan dalam menyediakan perawatan yang layak bagi para lansia.\r\n\r\nMelalui campaign ini, kami menggalang dana untuk mendukung pembangunan panti jompo yang dapat menjadi tempat tinggal sekaligus ruang perawatan bagi lansia. Dana yang terkumpul akan digunakan untuk mendukung kebutuhan pembangunan, penyediaan fasilitas dasar, serta menciptakan lingkungan yang aman dan nyaman bagi para penghuni.\r\n\r\nDukungan dari setiap donatur, berapa pun nominalnya, akan membantu mewujudkan fasilitas yang lebih layak bagi para lansia. Mari bersama-sama mengambil bagian dalam menciptakan tempat yang memberikan kenyamanan, perhatian, dan kehidupan yang lebih baik bagi mereka.\r\n\r\nTerima kasih atas kepedulian dan dukungan yang diberikan.', 'campaigns/kJi29tHkMD1F6DcaEIgO71l2Fw1zbj0q83BNfkmd.jpg', 100000000.00, '2027-01-21', 'menunggu', NULL, '2026-10-20 03:48:44', '2026-10-20 03:48:44', NULL);
+(9, 4, 3, 'Pembangunan Panti Jompo', 'Setiap lansia berhak mendapatkan tempat tinggal yang aman, nyaman, dan layak, serta lingkungan yang mendukung kebutuhan mereka sehari-hari. Namun, keterbatasan fasilitas dan tempat tinggal yang memadai masih menjadi tantangan dalam menyediakan perawatan yang layak bagi para lansia.\r\n\r\nMelalui campaign ini, kami menggalang dana untuk mendukung pembangunan panti jompo yang dapat menjadi tempat tinggal sekaligus ruang perawatan bagi lansia. Dana yang terkumpul akan digunakan untuk mendukung kebutuhan pembangunan, penyediaan fasilitas dasar, serta menciptakan lingkungan yang aman dan nyaman bagi para penghuni.\r\n\r\nDukungan dari setiap donatur, berapa pun nominalnya, akan membantu mewujudkan fasilitas yang lebih layak bagi para lansia. Mari bersama-sama mengambil bagian dalam menciptakan tempat yang memberikan kenyamanan, perhatian, dan kehidupan yang lebih baik bagi mereka.\r\n\r\nTerima kasih atas kepedulian dan dukungan yang diberikan.', 'campaigns/kJi29tHkMD1F6DcaEIgO71l2Fw1zbj0q83BNfkmd.jpg', 100000000.00, '2027-01-21', 'nonaktif', 'contoh', '2026-10-20 03:48:44', '2026-10-21 05:04:57', '2026-10-21 05:04:57'),
+(10, 2, 5, 'Penyediaan Air Bersih untuk Desa', 'Akses terhadap air bersih sangat penting untuk menunjang kesehatan dan aktivitas sehari-hari masyarakat. Namun, sebagian wilayah masih menghadapi keterbatasan sarana air bersih sehingga warga harus menempuh jarak tertentu atau mengandalkan sumber air yang belum memadai.\r\n\r\nCampaign ini bertujuan mendukung penyediaan sarana air bersih bagi masyarakat desa yang membutuhkan. Dana yang terkumpul akan digunakan untuk kebutuhan pembangunan atau perbaikan fasilitas air, pengadaan perlengkapan pendukung, serta instalasi sarana distribusi sesuai dengan kondisi lokasi.\r\n\r\nMelalui dukungan bersama, diharapkan masyarakat dapat memperoleh akses air bersih yang lebih mudah dan memadai. Setiap kontribusi membantu mendukung upaya peningkatan kualitas hidup dan kesehatan masyarakat.', 'campaigns/MkTSscxN4alMNTfWIK3NmrpJ18jwBocDDlCROCKF.jpg', 100000000.00, '2026-12-31', 'nonaktif', NULL, '2026-10-20 06:37:22', '2026-10-23 12:58:47', '2026-10-23 12:58:47'),
+(11, 4, 4, 'Pustaka Keliling untuk Anak-Anak Desa Terpencil', 'Di beberapa desa terpencil, anak-anak harus menempuh perjalanan lebih dari satu jam untuk sampai ke perpustakaan terdekat. Akibatnya, banyak dari mereka tidak punya buku bacaan selain buku pelajaran dari sekolah, dan minat baca pun sulit tumbuh.\r\n\r\nKami, sekelompok relawan pendidikan, ingin menghadirkan buku langsung ke desa mereka lewat program Pustaka Keliling. Setiap akhir pekan, relawan membawa buku dengan motor dan gerobak buku ke tiga desa, lalu membuka lapak baca gratis, mendongeng, dan belajar bersama.\r\n\r\nDana yang terkumpul akan digunakan untuk:\r\n1. Membeli 500 buku bacaan anak (cerita bergambar, sains populer, dan buku bahasa).\r\n2. Membuat satu gerobak buku dan rak yang mudah dibawa.\r\n3. Biaya bensin dan perawatan motor selama enam bulan.\r\n4. Perlengkapan lapak baca: tikar, terpal, dan alat tulis.\r\n\r\nKami akan melaporkan pembelian buku dan kegiatan setiap bulan di halaman ini, lengkap dengan foto dan rincian biaya. Terima kasih sudah membantu anak-anak desa mengenal dunia lewat buku.', 'campaigns/MycF4KeXChWBQFjdSoN1xLA0StFR5gJr0IZywbiy.jpg', 25000000.00, '2027-02-10', 'aktif', NULL, '2026-10-23 06:56:36', '2026-10-23 07:22:22', NULL),
+(12, 4, 1, 'contoh campaign dengan verifikasi penolakan', 'abc', NULL, 999920000.00, '2026-10-29', 'ditolak', 'tidak relevan', '2026-10-23 06:57:24', '2026-10-23 07:22:34', NULL);
 
 -- --------------------------------------------------------
 
@@ -117,7 +112,8 @@ INSERT INTO `campaign_updates` (`id_campaign_update`, `id_campaign`, `title`, `c
 (3, 2, 'Pendataan penerima beasiswa', 'Sebanyak 24 anak telah terdata. Kami menyiapkan daftar kebutuhan sekolah masing-masing.', NULL, 1, '2026-10-07 04:41:51', '2026-10-07 04:41:51'),
 (4, 3, 'Posko pengungsian dibuka', 'Relawan membuka dua posko di Kecamatan Stabat. Kebutuhan mendesak: selimut dan obat-obatan.', NULL, 1, '2026-10-13 04:41:51', '2026-10-13 04:41:51'),
 (5, 4, 'Jadwal operasi sudah keluar', 'Rumah sakit menjadwalkan operasi dalam beberapa pekan ke depan. Doa dan dukungan sangat berarti.', NULL, 1, '2026-10-16 04:41:51', '2026-10-16 04:41:51'),
-(6, 8, 'Renovasi Gereja Memasuki Tahap Persiapan', 'Penggalangan dana untuk renovasi gereja terus berjalan dengan dukungan dari para donatur. Saat ini, persiapan renovasi difokuskan pada pemeriksaan kondisi bangunan, identifikasi bagian yang memerlukan perbaikan, serta penyusunan kebutuhan material.\r\n\r\nTahap persiapan ini dilakukan untuk memastikan proses renovasi berjalan sesuai kebutuhan dan dana yang terkumpul dapat dimanfaatkan secara tepat.\r\n\r\nRencana penggunaan dana\r\n- Perbaikan bagian bangunan yang mengalami kerusakan.\r\n- Pengadaan material untuk kebutuhan renovasi.\r\n- Perbaikan fasilitas pendukung kegiatan ibadah.\r\nKami akan memberikan pembaruan berikutnya setelah proses renovasi mulai dilaksanakan. Terima kasih kepada seluruh donatur yang telah mendukung campaign ini.', 'updates/p47ASoOaUIMd66pe1I49uERnZ0mPxLieiUHf88Eh.jpg', 1, '2026-10-19 09:31:26', '2026-10-19 09:31:26');
+(6, 8, 'Renovasi Gereja Memasuki Tahap Persiapan', 'Penggalangan dana untuk renovasi gereja terus berjalan dengan dukungan dari para donatur. Saat ini, persiapan renovasi difokuskan pada pemeriksaan kondisi bangunan, identifikasi bagian yang memerlukan perbaikan, serta penyusunan kebutuhan material.\r\n\r\nTahap persiapan ini dilakukan untuk memastikan proses renovasi berjalan sesuai kebutuhan dan dana yang terkumpul dapat dimanfaatkan secara tepat.\r\n\r\nRencana penggunaan dana\r\n- Perbaikan bagian bangunan yang mengalami kerusakan.\r\n- Pengadaan material untuk kebutuhan renovasi.\r\n- Perbaikan fasilitas pendukung kegiatan ibadah.\r\nKami akan memberikan pembaruan berikutnya setelah proses renovasi mulai dilaksanakan. Terima kasih kepada seluruh donatur yang telah mendukung campaign ini.', 'updates/p47ASoOaUIMd66pe1I49uERnZ0mPxLieiUHf88Eh.jpg', 1, '2026-10-19 09:31:26', '2026-10-19 09:31:26'),
+(7, 3, 'Paket Sembako Tahap Pertama Sudah Sampai ke 250 Keluarga', 'Tahap pertama bantuan dari donasi Bapak dan Ibu sudah tersalurkan. Pada Sabtu, 18 Oktober 2026, tim relawan membagikan 250 paket sembako ke empat desa yang terdampak banjir di Kecamatan Sungai Rejo. Setiap paket berisi beras, minyak goreng, telur, mi instan, dan gula untuk kebutuhan sekitar satu minggu.\r\n\r\nDistribusi dibantu perangkat desa agar bantuan tepat sasaran. Warga yang masih berada di tenda pengungsian menjadi prioritas. Beberapa warga mengaku sangat terbantu karena stok makanan mereka habis terendam air.\r\n\r\nTahap berikutnya adalah penyaluran selimut, perlengkapan bayi, dan obat-obatan yang direncanakan pekan ini. Rincian penggunaan dana dapat dilihat di tab Penyaluran Dana. Terima kasih kepada seluruh donatur yang sudah ikut membantu.', 'updates/3ixn1y0vQhfJm6AhaoniCrWfvrWx4oSkO8CdZCbq.jpg', 1, '2026-10-23 07:00:26', '2026-10-23 07:00:26');
 
 -- --------------------------------------------------------
 
@@ -223,7 +219,9 @@ INSERT INTO `certificates` (`id_certificate`, `id_donation`, `certificate_number
 (58, 73, 'CERT-202610-00073', 'certificates/CERT-202610-00073.pdf', '2026-10-19 19:26:52'),
 (59, 74, 'CERT-202610-00074', 'certificates/CERT-202610-00074.pdf', '2026-10-19 19:30:01'),
 (60, 76, 'CERT-202610-00076', 'certificates/CERT-202610-00076.pdf', '2026-10-20 03:56:38'),
-(61, 77, 'CERT-202610-00077', 'certificates/CERT-202610-00077.pdf', '2026-10-20 03:59:22');
+(61, 77, 'CERT-202610-00077', 'certificates/CERT-202610-00077.pdf', '2026-10-20 03:59:22'),
+(62, 79, 'CERT-202610-00079', 'certificates/CERT-202610-00079.pdf', '2026-10-23 13:07:45'),
+(63, 81, 'CERT-202610-00081', 'certificates/CERT-202610-00081.pdf', '2026-10-25 01:34:17');
 
 -- --------------------------------------------------------
 
@@ -325,7 +323,11 @@ INSERT INTO `donations` (`id_donation`, `id_campaign`, `id_user`, `amount`, `mes
 (74, 8, 5, 500000.00, NULL, 0, 'paid', '2026-10-20 02:30:01', '2026-10-19 19:29:56', '2026-10-19 19:30:01'),
 (75, 8, 5, 50000.00, 'Tuhan memberkati', 0, 'pending', NULL, '2026-10-20 03:53:25', '2026-10-20 03:53:25'),
 (76, 8, 5, 50000.00, 'Tuhan memberkati', 0, 'paid', '2026-10-20 10:56:38', '2026-10-20 03:55:42', '2026-10-20 03:56:38'),
-(77, 8, 5, 500000.00, NULL, 0, 'paid', '2026-10-20 10:59:22', '2026-10-20 03:59:18', '2026-10-20 03:59:22');
+(77, 8, 5, 500000.00, NULL, 0, 'paid', '2026-10-20 10:59:22', '2026-10-20 03:59:18', '2026-10-20 03:59:22'),
+(78, 11, 12, 2000000.00, 'semangat', 0, 'failed', NULL, '2026-10-23 13:05:14', '2026-10-23 13:11:18'),
+(79, 11, 12, 2000000.00, 'semangat', 0, 'paid', '2026-10-23 20:07:45', '2026-10-23 13:07:21', '2026-10-23 13:07:45'),
+(80, 11, 12, 1000.00, NULL, 1, 'paid', '2026-10-23 20:09:42', '2026-10-23 13:09:31', '2026-10-23 13:09:42'),
+(81, 8, 5, 50000.00, NULL, 0, 'paid', '2026-10-25 08:34:17', '2026-10-25 01:34:12', '2026-10-25 01:34:17');
 
 -- --------------------------------------------------------
 
@@ -368,7 +370,8 @@ CREATE TABLE `fund_distributions` (
 
 INSERT INTO `fund_distributions` (`id_distribution`, `id_campaign`, `amount`, `recipient`, `description`, `proof_file`, `distributed_at`, `is_active`, `created_at`, `updated_at`) VALUES
 (1, 1, 40000000.00, 'Toko Bangunan Jaya Abadi', 'Pembelian material atap seng dan rangka baja ringan tahap pertama.', NULL, '2026-10-13', 1, '2026-10-13 04:41:51', '2026-10-13 04:41:51'),
-(2, 3, 25000000.00, 'Posko Pengungsian Stabat', 'Pembelian makanan siap saji, selimut, dan obat-obatan untuk 60 keluarga.', NULL, '2026-10-15', 1, '2026-10-15 04:41:51', '2026-10-15 04:41:51');
+(2, 3, 25000000.00, 'Posko Pengungsian Stabat', 'Pembelian makanan siap saji, selimut, dan obat-obatan untuk 60 keluarga.', NULL, '2026-10-15', 1, '2026-10-15 04:41:51', '2026-10-15 04:41:51'),
+(3, 3, 60000000.00, 'kepala desa', 'Pembelian dan pembagian 250 paket sembako. Rincian: 250 paket x Rp 50.000 = Rp 12.500.000. Setiap paket berisi beras 5 kg, minyak goreng 1 liter, telur 1 kg, mi instan 10 bungkus, dan gula 1 kg. Dibagikan oleh relawan bersama perangkat desa.', NULL, '2026-10-23', 1, '2026-10-23 07:02:12', '2026-10-23 07:02:12');
 
 -- --------------------------------------------------------
 
@@ -543,7 +546,11 @@ INSERT INTO `payments` (`id_payment`, `id_donation`, `order_id`, `transaction_id
 (74, 74, 'EDON-1792463396-2949', 'SIM-1792463401-657', 'QRIS', 'settlement', '2026-10-19 19:29:56', '2026-10-19 19:30:01'),
 (75, 75, 'EDON-1792468405-5757', NULL, NULL, NULL, '2026-10-20 03:53:25', '2026-10-20 03:53:25'),
 (76, 76, 'EDON-1792468542-5073', 'SIM-1792468598-635', 'QRIS', 'settlement', '2026-10-20 03:55:42', '2026-10-20 03:56:38'),
-(77, 77, 'EDON-1792468758-6543', 'SIM-1792468762-847', 'QRIS', 'settlement', '2026-10-20 03:59:18', '2026-10-20 03:59:22');
+(77, 77, 'EDON-1792468758-6543', 'SIM-1792468762-847', 'QRIS', 'settlement', '2026-10-20 03:59:18', '2026-10-20 03:59:22'),
+(78, 78, 'EDON-1792760714-8295', 'SIM-1792761078-342', 'QRIS', 'deny', '2026-10-23 13:05:14', '2026-10-23 13:11:18'),
+(79, 79, 'EDON-1792760841-5314', 'SIM-1792760865-994', 'QRIS', 'settlement', '2026-10-23 13:07:21', '2026-10-23 13:07:45'),
+(80, 80, 'EDON-1792760971-4661', 'SIM-1792760982-670', 'GoPay', 'settlement', '2026-10-23 13:09:31', '2026-10-23 13:09:42'),
+(81, 81, 'EDON-1792892052-2423', 'SIM-1792892057-490', 'QRIS', 'settlement', '2026-10-25 01:34:12', '2026-10-25 01:34:17');
 
 -- --------------------------------------------------------
 
@@ -559,13 +566,6 @@ CREATE TABLE `sessions` (
   `payload` longtext NOT NULL,
   `last_activity` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
-
---
--- Dumping data untuk tabel `sessions`
---
-
-INSERT INTO `sessions` (`id`, `user_id`, `ip_address`, `user_agent`, `payload`, `last_activity`) VALUES
-('UbQ0XEaEsEsUnStLaJ0iW2d7I5IaXsf4h8fV7CI4', 2, '127.0.0.1', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/155.0.0.0 Safari/537.36', 'YTo1OntzOjY6Il90b2tlbiI7czo0MDoiWThTUFVtWDZYbW9GendxZVkweTR4cGV3QmM3Qm9idDJncWFhV3kxbSI7czo2OiJfZmxhc2giO2E6Mjp7czozOiJuZXciO2E6MDp7fXM6Mzoib2xkIjthOjA6e319czo5OiJfcHJldmlvdXMiO2E6Mjp7czozOiJ1cmwiO3M6NDk6Imh0dHA6Ly8xMjcuMC4wLjE6ODAwMC9wZW5nZ2FsYW5nL2NhbXBhaWducy9jcmVhdGUiO3M6NToicm91dGUiO3M6Mjc6InBlbmdnYWxhbmcuY2FtcGFpZ25zLmNyZWF0ZSI7fXM6NTA6ImxvZ2luX3dlYl81OWJhMzZhZGRjMmIyZjk0MDE1ODBmMDE0YzdmNThlYTRlMzA5ODlkIjtpOjI7czoxNzoicGFzc3dvcmRfaGFzaF93ZWIiO3M6NjQ6ImMyM2Y3ZGY0YjM0ZTRjZDk2MjBiY2M2ZDMwZTNlN2RmZjBlNjY2MWRmNzM5MWExN2VkOGI0OTUyNjA0OThhOGEiO30=', 1792472934);
 
 -- --------------------------------------------------------
 
@@ -594,7 +594,7 @@ CREATE TABLE `users` (
 
 INSERT INTO `users` (`id_user`, `name`, `email`, `password`, `role`, `phone`, `organization_name`, `is_active`, `remember_token`, `created_at`, `updated_at`, `deleted_at`) VALUES
 (1, 'Administrator', 'admin@edonation.test', '$2y$12$meHgcIkebBgZuhQxtA8aT.wY3eVUww69WkwxnpdW8JZypv88qfZKe', 'admin', NULL, NULL, 1, NULL, '2026-10-19 01:03:26', '2026-10-19 01:03:26', NULL),
-(2, 'Yayasan Pelayanan Gereja', 'yayasan@demo.test', '$2y$12$MMtyMfXCIqUCp.IdXqW/weilbY0CXSJCXMTwli1b1p.vWwQ4FxHpW', 'penggalang', NULL, 'Panti Asuhan Harapan Bunda', 1, NULL, '2026-10-19 04:41:51', '2026-10-19 09:32:54', NULL),
+(2, 'Yayasan Pelayanan', 'yayasan@demo.test', '$2y$12$MMtyMfXCIqUCp.IdXqW/weilbY0CXSJCXMTwli1b1p.vWwQ4FxHpW', 'penggalang', NULL, 'Lembaya Peduli Lingkungan', 1, NULL, '2026-10-19 04:41:51', '2026-10-20 06:35:29', NULL),
 (3, 'Panitia Masjid Al-Ikhlas', 'masjid@demo.test', '$2y$12$MMtyMfXCIqUCp.IdXqW/weilbY0CXSJCXMTwli1b1p.vWwQ4FxHpW', 'penggalang', NULL, 'Masjid Al-Ikhlas Medan Timur', 1, NULL, '2026-10-19 04:41:51', '2026-10-19 04:41:51', NULL),
 (4, 'Relawan Peduli Medan', 'relawan@demo.test', '$2y$12$MMtyMfXCIqUCp.IdXqW/weilbY0CXSJCXMTwli1b1p.vWwQ4FxHpW', 'penggalang', NULL, 'Komunitas Relawan Peduli Medan', 1, NULL, '2026-10-19 04:41:51', '2026-10-19 04:41:51', NULL),
 (5, 'Budi Santoso', 'budi@demo.test', '$2y$12$MMtyMfXCIqUCp.IdXqW/weilbY0CXSJCXMTwli1b1p.vWwQ4FxHpW', 'donatur', NULL, NULL, 1, NULL, '2026-10-19 04:41:51', '2026-10-19 04:41:51', NULL),
@@ -605,7 +605,9 @@ INSERT INTO `users` (`id_user`, `name`, `email`, `password`, `role`, `phone`, `o
 (10, 'Nur Aisyah', 'aisyah@demo.test', '$2y$12$MMtyMfXCIqUCp.IdXqW/weilbY0CXSJCXMTwli1b1p.vWwQ4FxHpW', 'donatur', NULL, NULL, 1, NULL, '2026-10-19 04:41:51', '2026-10-19 04:41:51', NULL),
 (11, 'Fajar Nugroho', 'fajar@demo.test', '$2y$12$MMtyMfXCIqUCp.IdXqW/weilbY0CXSJCXMTwli1b1p.vWwQ4FxHpW', 'donatur', NULL, NULL, 1, NULL, '2026-10-19 04:41:51', '2026-10-19 04:41:51', NULL),
 (12, 'Maya Sari', 'maya@demo.test', '$2y$12$MMtyMfXCIqUCp.IdXqW/weilbY0CXSJCXMTwli1b1p.vWwQ4FxHpW', 'donatur', NULL, NULL, 1, NULL, '2026-10-19 04:41:51', '2026-10-19 04:41:51', NULL),
-(13, 'Jelita', 'jelita123@gmail.com', '$2y$12$mCSsLFmZYuZYhctyNcw6buXstJAD2Hp3sPJJg1vFuvINBgzjgqIkO', 'donatur', '0812345678', NULL, 1, NULL, '2026-10-19 04:45:40', '2026-10-19 04:45:40', NULL);
+(13, 'Jelita', 'jelita123@gmail.com', '$2y$12$mCSsLFmZYuZYhctyNcw6buXstJAD2Hp3sPJJg1vFuvINBgzjgqIkO', 'donatur', '0812345678', NULL, 1, NULL, '2026-10-19 04:45:40', '2026-10-19 04:45:40', NULL),
+(14, 'jelita', 'jelita@gmail.com', '$2y$12$EBvwL3LK2XeWHzADUx5NN.lBnODFG5LGB9N0zI9zznbaTtr8yfjMa', 'donatur', '081234567890', NULL, 1, NULL, '2026-10-20 06:27:21', '2026-10-20 06:27:21', NULL),
+(15, 'jelitaa', 'jel123@gmail.com', '$2y$12$SvNgyP26QIwLf3.33LL9jejnhjYKkIY0NDEUFUkv8Iq91RD3F0v1.', 'donatur', '0812345678', NULL, 1, NULL, '2026-10-23 06:43:40', '2026-10-23 06:43:40', NULL);
 
 --
 -- Indexes for dumped tables
@@ -741,7 +743,7 @@ ALTER TABLE `campaigns`
 -- AUTO_INCREMENT untuk tabel `campaign_updates`
 --
 ALTER TABLE `campaign_updates`
-  MODIFY `id_campaign_update` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
+  MODIFY `id_campaign_update` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
 
 --
 -- AUTO_INCREMENT untuk tabel `categories`
@@ -753,7 +755,7 @@ ALTER TABLE `categories`
 -- AUTO_INCREMENT untuk tabel `certificates`
 --
 ALTER TABLE `certificates`
-  MODIFY `id_certificate` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=62;
+  MODIFY `id_certificate` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=64;
 
 --
 -- AUTO_INCREMENT untuk tabel `donations`
@@ -789,13 +791,13 @@ ALTER TABLE `migrations`
 -- AUTO_INCREMENT untuk tabel `payments`
 --
 ALTER TABLE `payments`
-  MODIFY `id_payment` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=78;
+  MODIFY `id_payment` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=82;
 
 --
 -- AUTO_INCREMENT untuk tabel `users`
 --
 ALTER TABLE `users`
-  MODIFY `id_user` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=14;
+  MODIFY `id_user` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=16;
 
 --
 -- Ketidakleluasaan untuk tabel pelimpahan (Dumped Tables)
