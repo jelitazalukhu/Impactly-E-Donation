@@ -85,8 +85,8 @@ Semua perintah diketik di **Command Prompt** atau terminal VS Code. Tekan Enter 
 
 **Langkah 1. Unduh proyek**
 ```bash
-git clone https://github.com/USERNAME/impactly-e-donation.git
-cd impactly-e-donation
+git clone https://github.com/jelitazalukhu/Impactly-E-Donation.git
+cd Impactly-E-Donation
 ```
 Perintah pertama mengunduh proyek, yang kedua masuk ke foldernya.
 
@@ -136,6 +136,7 @@ Biarkan jendela ini tetap terbuka. Lalu buka **http://127.0.0.1:8000** di browse
 | `Unknown database 'e_donation'` | Database belum dibuat (langkah 3) |
 | Foto campaign tidak muncul | Jalankan `php artisan storage:link` (langkah 7) |
 | `Your requirements could not be resolved` | PHP di XAMPP kurang dari 8.2. Pasang XAMPP versi terbaru |
+
 ## 🔑 Akun Demo
 
 | Peran | Email | Password |
