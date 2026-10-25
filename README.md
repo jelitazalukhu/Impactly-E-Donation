@@ -1,6 +1,6 @@
 <div align="center">
 
-#  Impactly
+# Impactly
 
 ### Platform Donasi Online Berbasis Web
 
@@ -71,17 +71,20 @@ flowchart LR
 ## 🚀 Cara Menjalankan
 
 ### Yang harus ada dulu
+
 | Aplikasi | Fungsi | Unduh |
 | --- | --- | --- |
 | **XAMPP** (PHP 8.2 atau lebih baru) | Menyediakan PHP dan database MySQL | apachefriends.org |
 | **Composer** | Memasang pustaka yang dibutuhkan Laravel | getcomposer.org |
 | **Git** | Mengunduh proyek dari GitHub | git-scm.com |
 
-> Tidak mau memasang Git? Di halaman repo ini klik tombol hijau **Code > Download ZIP**, ekstrak, lalu lewati langkah 1.
+> Tidak mau memasang Git? Di halaman repo ini klik tombol hijau **Code > Download ZIP**, ekstrak, lalu buka terminal di dalam folder hasil ekstrak dan lewati langkah 1.
 
 ### Langkah-langkah
 
-Semua perintah diketik di **Command Prompt** atau terminal VS Code. Tekan Enter setelah setiap perintah dan tunggu sampai selesai.
+Cara menjalankannya terdiri dari tiga bagian: **terminal**, **phpMyAdmin**, lalu **terminal** lagi. Terminal yang dimaksud adalah **Command Prompt** atau terminal VS Code. Tekan Enter setelah setiap perintah dan tunggu sampai selesai.
+
+#### Bagian 1. Siapkan proyek (di terminal)
 
 **Langkah 1. Unduh proyek**
 ```bash
@@ -90,60 +93,63 @@ cd Impactly-E-Donation
 ```
 Perintah pertama mengunduh proyek, yang kedua masuk ke foldernya.
 
-**Langkah 2. Nyalakan MySQL**
-Buka **XAMPP Control Panel**, lalu klik **Start** pada baris **MySQL**. Tulisannya akan berwarna hijau.
-
-**Langkah 3. Buat database kosong**
-Buka http://localhost/phpmyadmin di browser, klik **Baru** (New), isi nama database `e_donation`, lalu klik **Buat**.
-
-**Langkah 4. Pasang pustaka Laravel**
+**Langkah 2. Pasang pustaka Laravel**
 ```bash
 composer install
 ```
 Proyek ini tidak membawa folder `vendor` (berisi pustaka Laravel), jadi perintah ini mengunduhnya. Butuh internet dan beberapa menit. Berhasil kalau muncul folder `vendor` dan tidak ada tulisan merah.
 
-**Langkah 5. Siapkan pengaturan**
+**Langkah 3. Siapkan pengaturan**
 ```bash
 copy .env.example .env
 php artisan key:generate
-```
-Perintah pertama membuat berkas pengaturan `.env`. Yang kedua membuat kunci keamanan aplikasi. Berhasil kalau muncul "Application key set successfully".
-
-**Langkah 6. Buat tabel dan isi data contoh**
-```bash
-php artisan migrate --seed
-```
-Berhasil kalau muncul daftar tabel berstatus **DONE**. Kalau muncul error koneksi, cek lagi langkah 2 dan 3.
-
-> Alternatif: lewati langkah ini, lalu impor berkas `database/e_donation.sql` lewat phpMyAdmin (buka database `e_donation`, tab **Impor**).
-
-**Langkah 7. Hubungkan folder foto**
-```bash
 php artisan storage:link
 ```
+Perintah pertama membuat berkas pengaturan `.env`, yang kedua membuat kunci keamanan aplikasi, dan yang ketiga menghubungkan folder foto. Berhasil kalau muncul "Application key set successfully".
+Di Mac atau Linux, ganti `copy` dengan `cp`.
 
-**Langkah 8. Jalankan aplikasi**
+> Biarkan terminal ini terbuka, nanti kita kembali ke sini di Bagian 3.
+
+#### Bagian 2. Siapkan database (XAMPP dan phpMyAdmin)
+
+**Langkah 4. Nyalakan MySQL**
+Buka **XAMPP Control Panel**, lalu klik **Start** pada baris **MySQL**. Tulisannya akan berwarna hijau.
+
+**Langkah 5. Buat database kosong**
+Buka http://localhost/phpmyadmin di browser, klik **Baru** (New), isi nama database `e_donation`, lalu klik **Buat**.
+
+**Langkah 6. Isi tabel dan data contoh**
+Klik database `e_donation` di daftar kiri, buka tab **Impor**, pilih berkas `database/e_donation.sql` dari folder proyek, lalu klik **Kirim**. Berhasil kalau muncul tulisan hijau dan tabel-tabelnya tampil di daftar kiri.
+
+#### Bagian 3. Jalankan aplikasi (kembali ke terminal)
+
+**Langkah 7. Jalankan**
 ```bash
 php artisan serve
 ```
-Biarkan jendela ini tetap terbuka. Lalu buka **http://127.0.0.1:8000** di browser dan aplikasi siap dipakai. Untuk menghentikannya, tekan **Ctrl + C**.
+Biarkan jendela ini tetap terbuka, lalu buka **http://127.0.0.1:8000** di browser. Untuk menghentikannya, tekan **Ctrl + C**.
 
 ### Kalau ada masalah
-| Pesan | Penyebab dan solusi |
+
+| Pesan atau kondisi | Penyebab dan solusi |
 | --- | --- |
 | `composer` tidak dikenali | Composer belum terpasang. Pasang lalu buka ulang terminal |
-| `could not find driver` atau koneksi database gagal | MySQL belum dinyalakan di XAMPP (langkah 2) |
-| `Unknown database 'e_donation'` | Database belum dibuat (langkah 3) |
-| Foto campaign tidak muncul | Jalankan `php artisan storage:link` (langkah 7) |
+| `could not find driver` atau koneksi database gagal | MySQL belum dinyalakan di XAMPP (langkah 4) |
+| `Unknown database 'e_donation'` | Database belum dibuat (langkah 5) |
+| Campaign kosong atau tidak bisa login | Data belum diimpor (langkah 6) |
+| `Table ... already exists` saat impor | Database sudah berisi tabel. Hapus database `e_donation`, buat ulang yang kosong, lalu impor lagi |
+| Foto campaign tidak muncul | Jalankan `php artisan storage:link` (langkah 3) |
 | `Your requirements could not be resolved` | PHP di XAMPP kurang dari 8.2. Pasang XAMPP versi terbaru |
+| `zip extension` tidak ditemukan saat `composer install` | Buka `php.ini` di XAMPP, hapus tanda `;` di depan `extension=zip`, lalu ulangi |
+| Port 8000 sedang dipakai | Jalankan `php artisan serve --port=8001`, lalu buka http://127.0.0.1:8001 |
 
 ## 🔑 Akun Demo
 
 | Peran | Email | Password |
 | --- | --- | --- |
 | Admin | admin@edonation.test | Admin#12345 |
-| Penggalang dana | yayasan@demo.test| password123 |
-| Donatur | budi@demo.test | password123 |
+| Penggalang dana | yayasan@demo.test | password123 |
+| Donatur | maya@demo.test | password123 |
 
 ## 🗄️ Struktur Database
 
