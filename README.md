@@ -166,6 +166,6 @@ Delapan tabel: `users`, `categories`, `campaigns`, `donations`, `payments`, `cer
 
 <div align="center">
 
-Dibuat untuk memenuhi tugas UTS E-Application · D3 Teknik Informatika
+Dibuat untuk memenuhi tugas UTS Mata Kuliah E-Application · D3 Teknik Informatika
 
 </div>
